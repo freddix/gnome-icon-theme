@@ -1,17 +1,20 @@
 %define		symbolic	3.6.2
+%define		extras		3.6.2
 
 Summary:	Default icon theme for GNOME enviroment
 Name:		gnome-icon-theme
 Version:	3.6.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Themes
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.6/%{name}-%{version}.tar.xz
 # Source0-md5:	c7bf0c7cc3ca0c9d4ac120aedb9ab8af
-Source1:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-symbolic/3.6/%{name}-symbolic-%{symbolic}.tar.xz
-# Source1-md5:	5c6a3834d50a14ff3c6d65513ac36eb4
+Source1:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-extras/3.6/%{name}-extras-%{extras}.tar.xz
+# Source1-md5:	41a37beccf627237d98eef2b472e9c4d
+Source2:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-symbolic/3.6/%{name}-symbolic-%{symbolic}.tar.xz
+# Source2-md5:	5c6a3834d50a14ff3c6d65513ac36eb4
 URL:		http://www.gnome.org/
-BuildRequires:	gdk-pixbuf
+BuildRequires:	/usr/bin/gtk-update-icon-cache
 BuildRequires:	icon-naming-utils
 BuildRequires:	intltool
 BuildArch:	noarch
@@ -31,7 +34,7 @@ Group:		Development
 GNOME icon theme pkgconfig file.
 
 %prep
-%setup -q -a1
+%setup -q -a1 -a2
 
 %build
 %{__intltoolize}
@@ -41,7 +44,14 @@ GNOME icon theme pkgconfig file.
 %configure
 %{__make}
 
-cd %{name}-symbolic-%{symbolic}
+cd %{name}-extras-%{extras}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
+%configure
+%{__make}
+
+cd ../%{name}-symbolic-%{symbolic}
 %{__aclocal}
 %{__automake}
 %{__autoconf}
@@ -52,6 +62,10 @@ cd %{name}-symbolic-%{symbolic}
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	pkgconfigdir=%{_pkgconfigdir}
+
+%{__make} -C %{name}-extras-%{extras} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
