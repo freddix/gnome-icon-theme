@@ -1,18 +1,18 @@
-%define		symbolic	3.10.1
-%define		extras		3.6.2
+%define		symbolic	3.12.0
+%define		extras		3.12.0
 
 Summary:	Default icon theme for GNOME enviroment
 Name:		gnome-icon-theme
-Version:	3.10.0
-Release:	2
+Version:	3.12.0
+Release:	1
 License:	GPL
 Group:		Themes
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	dc019e394a35b2642469bf7c299ca163
-Source1:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-extras/3.6/%{name}-extras-%{extras}.tar.xz
-# Source1-md5:	41a37beccf627237d98eef2b472e9c4d
-Source2:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-symbolic/3.10/%{name}-symbolic-%{symbolic}.tar.xz
-# Source2-md5:	348fa5965fdce9f9ebd76fed9ccd6851
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	f14bed7f804e843189ffa7021141addd
+Source1:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-extras/3.12/%{name}-extras-%{extras}.tar.xz
+# Source1-md5:	91f8f7e35a3d8d926716d88b8b1e9a29
+Source2:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme-symbolic/3.12/%{name}-symbolic-%{symbolic}.tar.xz
+# Source2-md5:	3c9c0e6b9fa04b3cbbb84da825a26fd9
 URL:		http://www.gnome.org/
 BuildRequires:	/usr/bin/gtk-update-icon-cache
 BuildRequires:	icon-naming-utils
