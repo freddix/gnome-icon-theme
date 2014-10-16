@@ -4,7 +4,7 @@
 Summary:	Default icon theme for GNOME enviroment
 Name:		gnome-icon-theme
 Version:	3.12.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Themes
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/%{name}-%{version}.tar.xz
